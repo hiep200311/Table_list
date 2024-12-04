@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><Table>Table_list</Table></title>
+    <link rel="stylesheet" href="Table_list.css" />
+  </head>
+  <body>
+    <div class="filter-section">
+      <div class="filters">
+        <div class="filter-group">
+          <label for="filter-by">Lọc bởi</label>
+          <select id="filter-by">
+            <option>Trạng Thái Người Dùng: Hiển Thị</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="cycle">Chu Kỳ</label>
+          <select id="cycle">
+            <option>Tháng Này</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="start-date">Từ Ngày</label>
+          <input id="start-date" type="date" value="2024-12-01" />
+        </div>
+        <div class="filter-group">
+          <label for="end-date">Tới Ngày</label>
+          <input id="end-date" type="date" value="2024-12-31" />
+        </div>
+        <div class="filter-group">
+          <input type="text" placeholder="Tìm Kiếm" />
+          <button class="search-btn">🔍</button>
+        </div>
+      </div>
+      <button class="export-btn">Xuất ▼</button>
+    </div>
+
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Nhân Viên</th>
+          <th>Địa Điểm</th>
+          <th>Các Đội</th>
+          <th>WFH</th>
+          <th>Thực Tập Nghỉ Phép</th>
+          <th>Thực Tập WFH</th>
+          <th>Phép Năm</th>
+          <th>Maternity Leave Female</th>
+          <th>Phép Đám Cưới</th>
+          <th>Bereavement Leave</th>
+          <th>Maternity Leave Male</th>
+          <th>Tổng Cộng</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <img src="https://via.placeholder.com/24" alt="Avatar" /> Men Ho
+          </td>
+          <td>xperc</td>
+          <td>Sale,Compounding360, QA</td>
+          <td>1.5</td>
+          <td>0</td>
+          <td>0</td>
+          <td>5.5</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>7</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pagination">
+      <span>43 total</span>
+      <button>◀</button>
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>▶</button>
+      <select>
+        <option>10</option>
+        <option>20</option>
+        <option>50</option>
+      </select>
+    </div>
+  </body>
+</html>
