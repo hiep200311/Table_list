@@ -1,91 +1,69 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><Table>Table_list</Table></title>
+    <title>Employee Grid</title>
     <link rel="stylesheet" href="Table_list.css" />
   </head>
   <body>
-    <div class="filter-section">
-      <div class="filters">
+    <div class="container">
+      <div class="filter-bar">
         <div class="filter-group">
-          <label for="filter-by">Lọc bởi</label>
-          <select id="filter-by">
-            <option>Trạng Thái Người Dùng: Hiển Thị</option>
+          <label for="period">Period:</label>
+          <select id="period">
+            <option value="current-month">Current Month</option>
+            <option value="last-month">Last Month</option>
+            <option value="custom">Custom Range</option>
           </select>
         </div>
         <div class="filter-group">
-          <label for="cycle">Chu Kỳ</label>
-          <select id="cycle">
-            <option>Tháng Này</option>
-          </select>
+          <label for="start-date">From:</label>
+          <input type="date" id="start-date" />
         </div>
         <div class="filter-group">
-          <label for="start-date">Từ Ngày</label>
-          <input id="start-date" type="date" value="2024-12-01" />
+          <label for="end-date">To:</label>
+          <input type="date" id="end-date" />
         </div>
         <div class="filter-group">
-          <label for="end-date">Tới Ngày</label>
-          <input id="end-date" type="date" value="2024-12-31" />
+          <label class="null">To</label>
+          <input type="text" id="search" placeholder="Search..." />
         </div>
-        <div class="filter-group">
-          <input type="text" placeholder="Tìm Kiếm" />
-          <button class="search-btn">🔍</button>
+        <button id="search-btn" class="primary-btn">Search</button>
+      </div>
+
+      <div class="sconler">
+        <table id="employee-table" class="table">
+          <thead>
+            <tr>
+              <th>Employee</th>
+              <th>Location</th>
+              <th>Department</th>
+              <th>WFH</th>
+              <th>Training Leave</th>
+              <th>WFH Training</th>
+              <th>Annual Leave</th>
+              <th>Maternity Leave</th>
+              <th>Marriage Leave</th>
+              <th>Bereavement Leave</th>
+              <th>Maternity Leave Male</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody id="employee-data"></tbody>
+        </table>
+      </div>
+
+      <div class="pagination">
+        <span id="showing-entries" class="info">Showing entries</span>
+        <div class="pagination-controls">
+          <button id="first-page" class="pagination-btn">⟪</button>
+          <button id="prev-page" class="pagination-btn">⟨</button>
+          <span id="current-page" class="info">Page 1</span>
+          <button id="next-page" class="pagination-btn">⟩</button>
+          <button id="last-page" class="pagination-btn">⟫</button>
         </div>
       </div>
-      <button class="export-btn">Xuất ▼</button>
     </div>
-
-    <table class="styled-table">
-      <thead>
-        <tr>
-          <th>Nhân Viên</th>
-          <th>Địa Điểm</th>
-          <th>Các Đội</th>
-          <th>WFH</th>
-          <th>Thực Tập Nghỉ Phép</th>
-          <th>Thực Tập WFH</th>
-          <th>Phép Năm</th>
-          <th>Maternity Leave Female</th>
-          <th>Phép Đám Cưới</th>
-          <th>Bereavement Leave</th>
-          <th>Maternity Leave Male</th>
-          <th>Tổng Cộng</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <img src="https://via.placeholder.com/24" alt="Avatar" /> Men Ho
-          </td>
-          <td>xperc</td>
-          <td>Sale,Compounding360, QA</td>
-          <td>1.5</td>
-          <td>0</td>
-          <td>0</td>
-          <td>5.5</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>7</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="pagination">
-      <span>43 total</span>
-      <button>◀</button>
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
-      <button>▶</button>
-      <select>
-        <option>10</option>
-        <option>20</option>
-        <option>50</option>
-      </select>
-    </div>
+    <script src="Table_list.js"></script>
   </body>
 </html>
