@@ -3,11 +3,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Employee Grid</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+    </style>
+
     <link rel="stylesheet" href="Table_list.css" />
   </head>
   <body>
     <div class="container">
       <div class="filter-bar">
+        <div class="filter filter-group">
+          <label for="start-date">Filter</label>
+          <select id="period">
+            <option value="current-month">Type</option>
+            <option value="last-month">Location</option>
+            <option value="custom">Team</option>
+            <option value="custom">Employee</option>
+            <option value="custom">User status</option>
+          </select>
+        </div>
+
         <div class="filter-group">
           <label for="period">Period:</label>
           <select id="period">
@@ -28,25 +43,65 @@
           <label class="null">To</label>
           <input type="text" id="search" placeholder="Search..." />
         </div>
-        <button id="search-btn" class="primary-btn">Search</button>
+        <div class="filter-group">
+          <label class="null">To</label>
+          <select class="export">
+            <option value="current-month">CSV</option>
+          </select>
+        </div>
       </div>
 
       <div class="sconler">
-        <table id="employee-table" class="table">
+        <table
+          id="employee-table"
+          class="table"
+          style="border-collapse: collapse; width: 100%"
+        >
           <thead>
             <tr>
-              <th>Employee</th>
-              <th>Location</th>
-              <th>Department</th>
-              <th>WFH</th>
-              <th>Training Leave</th>
-              <th>WFH Training</th>
-              <th>Annual Leave</th>
-              <th>Maternity Leave</th>
-              <th>Marriage Leave</th>
-              <th>Bereavement Leave</th>
-              <th>Maternity Leave Male</th>
-              <th>Total</th>
+              <th
+                class="employee-column"
+                style="width: 150px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1)"
+              >
+                Employee
+              </th>
+
+              <th style="width: 150px; height: 45px">Location</th>
+              <th style="width: 150px; height: 45px">Department</th>
+              <th style="text-align: center; width: 150px; height: 45px">
+                WFH
+              </th>
+              <th class="content" style="width: 150px; height: 45px">
+                Training Leave
+              </th>
+              <th style="text-align: center; width: 150px; height: 45px">
+                WFH Training
+              </th>
+              <th style="text-align: center; width: 150px; height: 45px">
+                Annual Leave
+              </th>
+              <th style="text-align: center; width: 150px; height: 45px">
+                Maternity Leave
+              </th>
+              <th style="text-align: center; width: 200px; height: 45px">
+                Marriage Leave
+              </th>
+              <th style="text-align: center; width: 200px; height: 45px">
+                Bereavement Leave
+              </th>
+              <th style="text-align: center; width: 200px; height: 45px">
+                Maternity Leave Male
+              </th>
+              <th
+                style="
+                  text-align: center;
+                  width: 150px;
+                  height: 45px;
+                  line-height: 3px;
+                "
+              >
+                Total
+              </th>
             </tr>
           </thead>
           <tbody id="employee-data"></tbody>
@@ -54,13 +109,23 @@
       </div>
 
       <div class="pagination">
-        <span id="showing-entries" class="info">Showing entries</span>
+        <span
+          id="showing-entries"
+          class="info"
+          style="font-size: larger; font-weight: 350"
+          >Total</span
+        >
         <div class="pagination-controls">
           <button id="first-page" class="pagination-btn">⟪</button>
           <button id="prev-page" class="pagination-btn">⟨</button>
-          <span id="current-page" class="info">Page 1</span>
+          <span id="current-page" class="info info_new">1</span>
           <button id="next-page" class="pagination-btn">⟩</button>
           <button id="last-page" class="pagination-btn">⟫</button>
+          <select id="role" class="roler">
+            <option value="">10</option>
+            <option value="">15</option>
+            <option value="">20</option>
+          </select>
         </div>
       </div>
     </div>
