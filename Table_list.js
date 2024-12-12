@@ -856,7 +856,7 @@ document.addEventListener("click", function (event) {
     periodContent.classList.remove("show");
   }
 });
-
+// TODO:
 periodLinks.forEach((link) => {
   link.addEventListener("click", function (event) {
     event.preventDefault();
