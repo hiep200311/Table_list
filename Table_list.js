@@ -686,10 +686,9 @@ const employeeData = [
       "https://xcorp-upload.s3.ap-southeast-1.amazonaws.com/094ecf62b81c96f22ab1aa5a0e4d3fc1/avatar/4809/avatar.jpg?2024-11-30T13:35:42.352336529",
   },
 ];
-let rowsPerPage = 10; // Số dòng mặc định mỗi trang
-let currentPage = 1; // Trang hiện tại
+let rowsPerPage = 10;
+let currentPage = 1;
 
-// Hàm cập nhật bảng
 function populateTable() {
   const tableBody = document.getElementById("employee-data");
   tableBody.innerHTML = "";
@@ -703,11 +702,11 @@ function populateTable() {
     row.innerHTML = `
       <td style="display: flex; align-items: center; box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);">
         <img src="${data.avatar}" alt="${data.employee}" 
-        style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;" />
+        style="width: 20px; height: 20px; border-radius: 50%; margin-right: 10px;" />
         <span>${data.employee}</span>
       </td>
       <td>${data.location}</td>
-      <td>${data.department}</td>
+      <td nowrap>${data.department}</td>
       <td style="text-align: center;">${data.wfh}</td>
       <td style="text-align: center;">${data.trainingLeave}</td>
       <td style="text-align: center;">${data.wfhTraining}</td>
@@ -724,7 +723,6 @@ function populateTable() {
   updatePaginationInfo();
 }
 
-// Hàm cập nhật thông tin phân trang
 function updatePaginationInfo() {
   const showingEntries = document.getElementById("showing-entries");
   const totalEntries = employeeData.length;
@@ -734,7 +732,6 @@ function updatePaginationInfo() {
   document.getElementById("current-page").textContent = `${currentPage}`;
 }
 
-// Hàm thiết lập các điều khiển phân trang
 function setupPaginationControls() {
   document.getElementById("next-page").addEventListener("click", () => {
     if (currentPage * rowsPerPage < employeeData.length) {
@@ -761,7 +758,6 @@ function setupPaginationControls() {
   });
 }
 
-// Sự kiện thay đổi table
 document.getElementById("role").addEventListener("change", (event) => {
   rowsPerPage = parseInt(event.target.value);
   currentPage = 1;
@@ -784,11 +780,11 @@ function handleSearch() {
     row.innerHTML = `
       <td style="display: flex; align-items: center; box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);">
         <img src="${data.avatar}" alt="${data.employee}" 
-        style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;" />
+        style="width: 20px; height: 20px; border-radius: 50%; margin-right: 10px;" />
         <span>${data.employee}</span>
       </td>
       <td>${data.location}</td>
-      <td>${data.department}</td>
+      <td nowrap>${data.department}</td>
       <td style="text-align: center;">${data.wfh}</td>
       <td style="text-align: center;">${data.trainingLeave}</td>
       <td style="text-align: center;">${data.wfhTraining}</td>
@@ -805,11 +801,9 @@ function handleSearch() {
   updatePaginationInfo();
 }
 
-// Gọi hàm để khởi tạo bảng
 populateTable();
 setupPaginationControls();
 
-// Dropdown Filter
 const dropdown = document.getElementById("period");
 const dropdownBtn = dropdown.querySelector(".dropdown-btn");
 const dropdownContent = dropdown.querySelector(".dropdown-content");
@@ -844,8 +838,32 @@ dropdownContent.addEventListener("click", (event) => {
 //     dropdownContent.style.display = "none";
 //   }
 // });
-document.addEventListener("click", (event) => {
-  if (!dropdown.contains(event.target)) {
-    dropdownContent.style.display = "none";
+
+const periodBtn = document.querySelector(".period-btn");
+const periodContent = document.querySelector(".period-content");
+const periodLinks = document.querySelectorAll(".period-content a");
+
+periodBtn.addEventListener("click", function (event) {
+  event.stopPropagation();
+  periodContent.classList.toggle("show");
+});
+
+document.addEventListener("click", function (event) {
+  if (
+    !periodContent.contains(event.target) &&
+    !periodBtn.contains(event.target)
+  ) {
+    periodContent.classList.remove("show");
   }
+});
+
+periodLinks.forEach((link) => {
+  link.addEventListener("click", function (event) {
+    event.preventDefault();
+    const selectedValue = event.target.getAttribute("data-value");
+    periodBtn.textContent = event.target.textContent;
+    periodContent.classList.remove("show");
+
+    console.log(`Selected value: ${selectedValue}`);
+  });
 });

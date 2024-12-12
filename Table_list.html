@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,7 +7,6 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
     </style>
-
     <link rel="stylesheet" href="Table_list.css" />
   </head>
   <body>
@@ -25,16 +25,6 @@
                 width: 100%;
                 height: calc(1.5em + 0.75rem + 2px);
                 padding: 0.375rem 0.75rem;
-                font-size: 1rem;
-                font-weight: 400;
-                line-height: 1.5;
-                color: #495057;
-                background-color: #fff;
-                background-clip: padding-box;
-                border: 1px solid #ced4da;
-                border-radius: 0.25rem;
-                transition: border-color 0.15s ease-in-out,
-                  box-shadow 0.15s ease-in-out;
               "
             >
               <span
@@ -45,9 +35,8 @@
                   color: #495057;
                   padding-right: 0.5rem;
                 "
+                >Filter:</span
               >
-                Filter:
-              </span>
               Select an option
             </button>
             <div
@@ -62,19 +51,19 @@
               "
             >
               <span class="header-filter">Filter by</span>
-              <a style="padding-left: 9px" href="#" data-value="current-month"
+              <a style="padding-left: 8px" href="#" data-value="current-month"
                 >Type</a
               >
-              <a style="padding-left: 9px" href="#" data-value="last-month"
+              <a style="padding-left: 8px" href="#" data-value="last-month"
                 >Location</a
               >
-              <a style="padding-left: 9px" href="#" data-value="custom-team"
+              <a style="padding-left: 8px" href="#" data-value="custom-team"
                 >Team</a
               >
-              <a style="padding-left: 9px" href="#" data-value="custom-employee"
+              <a style="padding-left: 8px" href="#" data-value="custom-employee"
                 >Employee</a
               >
-              <a style="padding-left: 9px" href="#" data-value="custom-status"
+              <a style="padding-left: 8px" href="#" data-value="custom-status"
                 >User status</a
               >
             </div>
@@ -82,13 +71,19 @@
         </div>
 
         <div class="filter-group">
-          <label for="period">Period:</label>
-          <select id="period">
-            <option value="current-month">Current Month</option>
-            <option value="last-month">Last Month</option>
-            <option value="custom">Custom Range</option>
-          </select>
+          <label for="period-filter">Period:</label>
+          <div id="period-filter" class="period-dropdown dropdown">
+            <button class="period-btn">Select an option</button>
+            <div class="period-content">
+              <a href="#" data-value="current-month">Type</a>
+              <a href="#" data-value="last-month">Location</a>
+              <a href="#" data-value="custom-team">Team</a>
+              <a href="#" data-value="custom-employee">Employee</a>
+              <a href="#" data-value="custom-status">User status</a>
+            </div>
+          </div>
         </div>
+
         <div class="filter-group">
           <label for="start-date">From:</label>
           <input type="date" id="start-date" />
@@ -103,12 +98,34 @@
         </div>
         <div class="filter-group">
           <label class="null">To</label>
-          <select
-            class="export"
-            style="width: 90px; background: #0053b3; color: white"
+          <div
+            class="export-dropdown"
+            style="
+              width: 50px;
+              background: #0053b3;
+              color: white;
+              position: relative;
+              cursor: pointer;
+            "
           >
-            <option value="current-month">Export</option>
-          </select>
+            <span class="dropdown-text">Export</span>
+            <div
+              class="dropdown-content"
+              style="
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                color: #000;
+                border: 1px solid #0053b3;
+                z-index: 9999;
+              "
+            >
+              <div class="dropdown-item" data-value="current-month">CGV</div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -122,11 +139,10 @@
             <tr>
               <th
                 class="employee-column"
-                style="width: 150px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1)"
+                style="width: 100px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1)"
               >
                 Employee
               </th>
-
               <th style="width: 150px; height: 45px">Location</th>
               <th style="width: 150px; height: 45px">Department</th>
               <th style="text-align: center; width: 150px; height: 45px">

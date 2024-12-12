@@ -19,24 +19,18 @@ option {
   padding-inline: 2px;
   white-space: nowrap;
 }
-.avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.option_mid {
-  border: 1px solid red;
-}
 
 .filter-bar {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 20px;
-  border-radius: 5px;
+  padding: 10px;
+  align-items: center;
   justify-content: space-between;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba;
 }
 
 .filter-group {
@@ -57,6 +51,7 @@ option {
 }
 .filter-group input,
 .filter-group select {
+  margin: 0;
   padding: 8px;
   font-size: 1em;
   border: 1px solid #ccc;
@@ -66,7 +61,7 @@ option {
 
 .primary-btn {
   height: 37px;
-  margin-top: 20px;
+  margin: 0;
   font-size: 1em;
   color: #fff;
   background-color: #007bff;
@@ -93,8 +88,8 @@ option {
   border-right: none;
   font-size: 1rem;
   color: #42526e;
-  position: relative; /* Đảm bảo table không ảnh hưởng tới dropdown */
-  overflow: visible; /* Cho phép hiển thị phần tử bên ngoài table */
+  position: relative;
+  overflow: visible;
   z-index: 1;
 }
 .content {
@@ -104,13 +99,14 @@ option {
 .table th,
 .table td {
   background-color: #ffffff;
-  padding: 10px;
+  padding-left: 9px;
   text-align: left;
   border-bottom: 1px solid #e5e5e5;
 }
 .table th:nth-child(1),
 .table td:nth-child(1) {
   width: 150px;
+  height: 40px;
 }
 
 .table tbody tr:nth-child(even) {
@@ -256,7 +252,7 @@ td:first-child {
 .dropdown-content a {
   display: block;
   width: 97%;
-  padding: 8px 12px;
+
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 400;
@@ -279,4 +275,108 @@ td:first-child {
 .dropdown-content a:hover {
   background-color: #f1fafe;
   color: #333;
+}
+
+.period-btn {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 200px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+.period-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  width: 200px;
+  padding: 0.5rem 0;
+  margin: 0.5rem 0 0;
+}
+
+.period-content.show {
+  display: block;
+}
+
+.period-content a {
+  display: block;
+  width: 90%;
+  color: #172b4d;
+  padding: 7px 9px;
+  text-decoration: none;
+  font-weight: 400;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.period-content a:hover {
+  background-color: #f1fafe;
+  color: #333;
+}
+
+.null {
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+  margin-right: 10px;
+}
+
+.export-dropdown {
+  position: relative;
+  display: inline-block;
+  background-color: #0053b3;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dropdown-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+  cursor: pointer;
+}
+
+.dropdown-contentt {
+  display: none;
+  position: absolute;
+  top: 102%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #0053b3;
+  z-index: 9999;
+
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-item {
+  text-align: center;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f1fafe;
+  color: #333;
+  border-radius: 4px;
+}
+
+.export-dropdown:hover .dropdown-contentt {
+  display: block;
 }
