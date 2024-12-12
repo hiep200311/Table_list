@@ -808,3 +808,44 @@ function handleSearch() {
 // Gọi hàm để khởi tạo bảng
 populateTable();
 setupPaginationControls();
+
+// Dropdown Filter
+const dropdown = document.getElementById("period");
+const dropdownBtn = dropdown.querySelector(".dropdown-btn");
+const dropdownContent = dropdown.querySelector(".dropdown-content");
+
+dropdownContent.style.display = "none";
+
+dropdownBtn.addEventListener("click", (event) => {
+  event.stopPropagation();
+
+  if (
+    dropdownContent.style.display === "none" ||
+    dropdownContent.style.display === ""
+  ) {
+    dropdownContent.style.display = "block";
+  } else {
+    dropdownContent.style.display = "none";
+  }
+});
+
+dropdownContent.addEventListener("click", (event) => {
+  if (event.target.tagName === "A") {
+    dropdownBtn.textContent = event.target.textContent;
+
+    dropdownContent.style.display = "none";
+  }
+});
+// dropdownContent.addEventListener("click", (event) => {
+//   if (event.target.tagName === "A") {
+//     const selectedText = event.target.textContent;
+//     selectedOptionSpan.textContent = "Selected Option: " + selectedText;
+//     selectedOptionSpan.style.display = "inline";
+//     dropdownContent.style.display = "none";
+//   }
+// });
+document.addEventListener("click", (event) => {
+  if (!dropdown.contains(event.target)) {
+    dropdownContent.style.display = "none";
+  }
+});

@@ -14,13 +14,71 @@
       <div class="filter-bar">
         <div class="filter filter-group">
           <label for="start-date">Filter</label>
-          <select id="period">
-            <option value="current-month">Type</option>
-            <option value="last-month">Location</option>
-            <option value="custom">Team</option>
-            <option value="custom">Employee</option>
-            <option value="custom">User status</option>
-          </select>
+          <div
+            id="period"
+            class="dropdown"
+            style="width: 324px; position: relative"
+          >
+            <button
+              class="dropdown-btn"
+              style="
+                width: 100%;
+                height: calc(1.5em + 0.75rem + 2px);
+                padding: 0.375rem 0.75rem;
+                font-size: 1rem;
+                font-weight: 400;
+                line-height: 1.5;
+                color: #495057;
+                background-color: #fff;
+                background-clip: padding-box;
+                border: 1px solid #ced4da;
+                border-radius: 0.25rem;
+                transition: border-color 0.15s ease-in-out,
+                  box-shadow 0.15s ease-in-out;
+              "
+            >
+              <span
+                style="
+                  font-size: 1rem;
+                  font-weight: 400;
+                  line-height: 1.5;
+                  color: #495057;
+                  padding-right: 0.5rem;
+                "
+              >
+                Filter:
+              </span>
+              Select an option
+            </button>
+            <div
+              class="dropdown-content"
+              style="
+                width: 323px;
+                display: block;
+                position: absolute;
+                top: 42.6667px;
+                left: 0px;
+                z-index: 9999;
+              "
+            >
+              <span class="header-filter">Filter by</span>
+              <a style="padding-left: 9px" href="#" data-value="current-month"
+                >Type</a
+              >
+              <a style="padding-left: 9px" href="#" data-value="last-month"
+                >Location</a
+              >
+              <a style="padding-left: 9px" href="#" data-value="custom-team"
+                >Team</a
+              >
+              <a style="padding-left: 9px" href="#" data-value="custom-employee"
+                >Employee</a
+              >
+              <a style="padding-left: 9px" href="#" data-value="custom-status"
+                >User status</a
+              >
+            </div>
+          </div>
         </div>
 
         <div class="filter-group">
@@ -45,8 +103,11 @@
         </div>
         <div class="filter-group">
           <label class="null">To</label>
-          <select class="export">
-            <option value="current-month">CSV</option>
+          <select
+            class="export"
+            style="width: 90px; background: #0053b3; color: white"
+          >
+            <option value="current-month">Export</option>
           </select>
         </div>
       </div>

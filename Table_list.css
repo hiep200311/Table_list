@@ -26,7 +26,8 @@ option {
   margin-right: 10px;
 }
 
-.export {
+.option_mid {
+  border: 1px solid red;
 }
 
 .filter-bar {
@@ -92,6 +93,9 @@ option {
   border-right: none;
   font-size: 1rem;
   color: #42526e;
+  position: relative; /* Đảm bảo table không ảnh hưởng tới dropdown */
+  overflow: visible; /* Cho phép hiển thị phần tử bên ngoài table */
+  z-index: 1;
 }
 .content {
   text-align: center;
@@ -202,4 +206,77 @@ td:first-child {
   border: 0.8px solid #cddbe3;
   min-height: 32px !important;
   box-shadow: unset !important;
+}
+
+.header-filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  text-transform: uppercase;
+  line-height: 1.5;
+  border-bottom: 1px solid #dde8f1;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+}
+
+.dropdown-btn {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #fff;
+  color: #333;
+  font-size: 14px;
+  text-align: left;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.dropdown-btn:hover {
+  background-color: #f9f9f9;
+  border-color: #aaa;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  display: none;
+  position: absolute;
+}
+
+.dropdown-content a {
+  display: block;
+  width: 97%;
+  padding: 8px 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 1.5;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  float: left;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
+  font-size: 1rem;
+  color: #172b4d;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1fafe;
+  color: #333;
 }
